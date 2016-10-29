@@ -2,9 +2,13 @@ package ru.sstu;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+
+import static java.nio.file.Files.*;
 
 public class Main {
 
@@ -12,30 +16,32 @@ public class Main {
 	// write your code here
         //fileOperations();
 
-        Path relPath = Paths.get("123/abc");
+        /*Path relPath = Paths.get("123/abc");
         printPathInfo(relPath);
 
         if(relPath.isAbsolute()) System.out.println("Путь абсолютный");
         System.out.println("==================");
         Path absPath = relPath.toAbsolutePath();
-        printPathInfo(absPath);
+        printPathInfo(absPath);*/
 
         /*try {
             Files.delete(relPath);
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        Path grandParent = absPath.getParent().getParent();
-        Path newFilePath = Paths.get(grandParent.toString(), "1.txt");
+        /*Path grandParent = absPath.getParent().getParent();
+        Path newFilePath = Paths.get(grandParent.toString(), "1.txt");*/
         /*try {
             Files.createFile(newFilePath);
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        printPathInfo(grandParent);
+        //printPathInfo(grandParent);
         //Files.list().forEach((e)->e.toAbsolutePath());
 
+        //fileInputOutput();
 
+        stringsOperations();
 
 
 
@@ -56,9 +62,9 @@ public class Main {
         System.out.println("getParent: "+ path.getParent());
         System.out.println("getRoot: "+ path.getRoot());
 
-        if(Files.isDirectory(path))
+        if(isDirectory(path))
             System.out.println( path + " - это папка");
-        if(Files.isRegularFile(path))
+        if(isRegularFile(path))
             System.out.println(path + " - это файл");
 
 
@@ -73,20 +79,20 @@ public class Main {
         printPathInfo(p2);
 
         try {
-            Files.deleteIfExists(p2);
+            deleteIfExists(p2);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         try {
-            Files.createDirectory(p2);
+            createDirectory(p2);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Path p3 = Paths.get("C:/Users/Shvarts/345/678/90");
         try {
-            Files.createDirectories(p3);
+            createDirectories(p3);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,14 +100,14 @@ public class Main {
         Path p4 = Paths.get("C:/Users/Shvarts/Java Projects/2.txt");
         try
         {
-            Files.deleteIfExists(p4);
+            deleteIfExists(p4);
         }
         catch (IOException ioe)
         {
             ioe.printStackTrace();
         }
         try {
-            Files.createFile(p4);
+            createFile(p4);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,20 +121,116 @@ public class Main {
 
         Path p6 = Paths.get("C:/Users/Shvarts/Java Projects/123/90//");
         try {
-            Files.copy(p3, p6);
+            copy(p3, p6);
         } catch (IOException e) {
             e.printStackTrace();
         }
         Path p7 = Paths.get("C:/Users/Shvarts/Java Projects/123/90/678.txt");
         try {
-            Files.move(p5, p7);
+            move(p5, p7);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         Path p8 = Paths.get("C:/Users/Shvarts/Java Projects/321");
         try {
-            Files.move(p2,p8);
+            move(p2,p8);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void fileInputOutput()
+    {
+        Path path1 = Paths.get("C:/Users/Shvarts/Java Projects/InputOutput/1.txt");
+
+        Path path2 = Paths.get("C:/Users/Shvarts/Java Projects/InputOutput/1_1.txt");
+        //Чтение
+        List<String> lines = null;
+        try {
+            System.out.println("==============");
+            System.out.println("==============");
+            lines = Files.readAllLines(path1);
+            for(String line : lines)
+            {
+                System.out.println(line);
+            }
+            System.out.println("Строк: " + lines.size());
+            System.out.println("==============");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        lines.add("adewgrgrgrgrg");
+
+        try {
+            Files.write(path2, lines, Charset.forName("UTF-8"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+    public static void stringsOperations()
+    {
+        Path path1 = Paths.get("C:/Users/Shvarts/Java Projects/InputOutput/1.txt");
+        List<String> lines = null;
+        try {
+            lines = Files.readAllLines(path1);
+
+
+            String result = "";
+            StringBuilder sb = new StringBuilder();
+
+
+            for(String line : lines)
+            {
+                //System.out.println(line);
+                //result+=line;
+                sb.append(line).append('\n');
+            }
+
+            result = sb.toString();
+            System.out.println(result);
+
+            String newString = "Иван , Николай , Мария     , Александр ";
+
+            String[] arrString = newString.split(",");
+            for (String a:
+                 arrString) {
+                System.out.println(a.trim());
+            }
+
+            String s2 = "Samsung Galaxy 7, Samsung Galaxy Note, iPhone iPhone, Chinese Samsung Copy";
+            String[] phones = s2.split(",");
+            for (String phone:
+                 phones) {
+                System.out.println("--------");
+                String phoneTrimmed = phone.trim();
+                if(phoneTrimmed.startsWith("Samsung")) System.out.println("Samsung phone: " + phoneTrimmed);
+                if(phoneTrimmed.contains("Copy")) System.out.println("Phone " + phoneTrimmed + " is a bad copy!");
+
+                String phoneWithoutSpaces = phoneTrimmed.replace(' ', '_');
+                System.out.println(phoneWithoutSpaces);
+
+                System.out.println(phoneTrimmed.replace("iPhone", "XXX"));
+                System.out.println(phoneTrimmed.replace("iPhone", ""));
+
+                /*for(int i = 0; i < phoneTrimmed.length(); i++)
+                {
+                    System.out.println(phoneTrimmed.charAt(i));
+                }*/
+
+                System.out.println(phoneTrimmed.substring(1, 4));
+                System.out.println(phoneTrimmed.toLowerCase());
+                System.out.println(phoneTrimmed.toUpperCase());
+
+
+            }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
