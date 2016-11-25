@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <HBox fx:id="topHBox" prefHeight="40.0">
+         <children>
+            <ComboBox fx:id="classComboBox" prefWidth="150.0" />
+            <ComboBox fx:id="methodComboBox" prefWidth="150.0" />
+         </children></HBox>
+      <TextArea fx:id="consoleTextArea" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>
