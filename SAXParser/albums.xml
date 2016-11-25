@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<albums xmlns:furniture="http://furniture.ru" xmlns:html="http://html.com">
+    <name>ALL ALBUMS</name>
+    <album id="1">
+
+        <!--<furniture:table></furniture:table>
+        <html:table></html:table>-->
+
+        <name>Album 1</name>
+        <year>2013</year>
+        <artists>
+            <artist age="50">Artist 1</artist>
+            <artist height="180" age="51">Artist 2</artist>
+        </artists>
+        <tracks>
+            <track>
+                <name>111</name>
+                <duration>120</duration>
+            </track>
+            <track>
+                <name>222</name>
+                <duration>360</duration>
+            </track>
+        </tracks>
+
+    </album>
+    <album id="2">
+        <name>Album 2</name>
+        <year>1999</year>
+        <artists>
+            <artist>Artist 3</artist>
+        </artists>
+        <tracks>
+            <track>
+                <name>abc</name>
+                <duration>300</duration>
+            </track>
+        </tracks>
+    </album>
+</albums>
