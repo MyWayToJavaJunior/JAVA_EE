@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <file name="file.txt"/>
+    <pictures>
+        <summer>
+            <file name="s1.jpg"/>
+            <file name="s2.jpg"/>
+            <file name="s3.jpg"/>
+        </summer>
+        <winter>
+            <file name="w123.jpg"/>
+        </winter>
+        <file name="p1.jpg"/>
+    </pictures>
+    <films>
+        <comedy>
+            <file name="c1.avi"/>
+            <file name="c2.avi"/>
+        </comedy>
+        <horror>
+            <file name="h1.avi"/>
+            <file name="h2.avi"/>
+        </horror>
+    </films>
+    <music>
+        <jazz>
+            <file name="j1.avi"/>
+            <file name="j2.avi"/>
+        </jazz>
+        <rock>
+
+        </rock>
+    </music>
+</root>
