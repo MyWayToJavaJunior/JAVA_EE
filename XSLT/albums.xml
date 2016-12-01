@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="albums_5.xsl" ?>
+<albums>
+    <album id="112">
+        <name>abc</name>
+        <year>1980</year>
+        <tracks>
+            <track>
+                <name>
+                    12345
+                </name>
+                <duration>
+                    130
+                </duration>
+            </track>
+            <track>
+                <name>
+                    67890
+                </name>
+                <duration>
+                    309
+                </duration>
+            </track>
+        </tracks>
+    </album>
+    <album id="12">
+        <name>aaef</name>
+        <year>2005</year>
+        <tracks>
+            <track>
+                <name>
+                    12345
+                </name>
+                <duration>
+                    130
+                </duration>
+            </track>
+            <track>
+                <name>
+                    67890
+                </name>
+                <duration>
+                    309
+                </duration>
+            </track>
+            <track>
+                <name>
+                    67890
+                </name>
+                <duration>
+                    309
+                </duration>
+            </track>
+        </tracks>
+    </album>
+    <album id="3">
+        <name>ghi</name>
+        <year>1995</year>
+        <tracks>
+            <track>
+                <name>
+                    12345
+                </name>
+                <duration>
+                    130
+                </duration>
+            </track>
+            <track>
+                <name>
+                    67890
+                </name>
+                <duration>
+                    309
+                </duration>
+            </track>
+        </tracks>
+    </album>
+</albums>

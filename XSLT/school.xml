@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<?xml-stylesheet type="text/xsl" href="school.xsl" ?>
+<school>
+    <class>
+        <name>
+            7А
+        </name>
+        <students>
+            <student>
+                <fio>
+                    ааа ааа ааа
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                    <subject>
+                        <name>Математика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>3</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+            <student>
+                <fio>
+                    ббб ббб ббб
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+        </students>
+    </class>
+    <class>
+        <name>
+            7А
+        </name>
+        <students>
+            <student>
+                <fio>
+                    ааа ааа ааа
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                    <subject>
+                        <name>Математика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>3</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+            <student>
+                <fio>
+                    ббб ббб ббб
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+        </students>
+    </class>
+    <class>
+        <name>
+            11Б
+        </name>
+        <students>
+            <student>
+                <fio>
+                    ввв ввв ввв
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                    <subject>
+                        <name>Математика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>3</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+            <student>
+                <fio>
+                    ввв ввв ввв
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                    <subject>
+                        <name>Математика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>3</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+            <student>
+                <fio>
+                    ггг ггг ггг
+                </fio>
+                <subjects>
+                    <subject>
+                        <name>Физика</name>
+                        <marks>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                            <mark>5</mark>
+                        </marks>
+                    </subject>
+                </subjects>
+            </student>
+        </students>
+    </class>
+</school>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?xml-stylesheet type="text/xsl" href="noteDetailed.xsl"?>
+<note>
+    <to>John Johnson</to>
+    <from>Jack Jackson</from>
+    <subject>Meeting</subject>
+    <body>Hi, John! Tomorrow we are having a meeting...</body>    
+</note>
