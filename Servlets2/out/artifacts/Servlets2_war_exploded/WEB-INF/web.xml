@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>ru.sstu.AuthFilter</filter-class>
+    </filter>
+
+
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>ru.sstu.AuthServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>ru.sstu.AboutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactsServlet</servlet-name>
+        <servlet-class>ru.sstu.ContactsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoffServlet</servlet-name>
+        <servlet-class>ru.sstu.LogoffServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PageStartServlet</servlet-name>
+        <servlet-class>ru.sstu.PageStartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactsServlet</servlet-name>
+        <url-pattern>/contacts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoffServlet</servlet-name>
+        <url-pattern>/logoff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PageStartServlet</servlet-name>
+        <url-pattern>/pageStart</url-pattern>
+    </servlet-mapping>
+
+    <!--<filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <servlet-name>AboutServlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <servlet-name>ContactsServlet</servlet-name>
+    </filter-mapping>-->
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>about</welcome-file>
+    </welcome-file-list>
+</web-app>
