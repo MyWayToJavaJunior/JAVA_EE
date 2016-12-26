@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="ru.sstu.persistence.StudentsEntity">
+        <table name="students" schema="accp" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="11"/>
+            </id>
+            <basic name="name">
+                <column name="name" length="50"/>
+            </basic>
+            <basic name="surname">
+                <column name="surname" length="50"/>
+            </basic>
+            <basic name="birthdate">
+                <column name="birthdate" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

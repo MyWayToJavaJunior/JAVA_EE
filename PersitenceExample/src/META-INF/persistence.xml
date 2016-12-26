@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="ACCPPersistenceUnit">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <mapping-file>ru/sstu/persistence/StudentsEntity.xml</mapping-file>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/accp"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.user" value="root"/>
+            <property name="eclipselink.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
+</persistence>
