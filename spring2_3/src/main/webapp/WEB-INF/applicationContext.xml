@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+
+    <context:component-scan base-package="ru.sstu.controller, ru.sstu.service"/>
+
+    <mvc:annotation-driven/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="exposeContextBeansAsAttributes" value="true"/>
+    </bean>
+
+    <!-- the mvc resources tag does the magic -->
+    <mvc:resources mapping="/static/**" location="/static/" />
+
+    <bean class="ru.sstu.repository.CommentsDAO" id="commentsDAOBean"></bean>
+
+    <bean class="ru.sstu.service.BlogService" id="blogServiceBean">
+        <property name="commentsDAO" ref="commentsDAOBean"/>
+    </bean>
+
+    <bean class="ru.sstu.component.MyComponent" id="myComponent">
+        <constructor-arg name="bs" ref="blogServiceBean"/>
+        <constructor-arg name="cd" ref="commentsDAOBean"/>
+    </bean>
+
+
+    <!-- Источник данных (БД MySQL) -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/accp" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
+
+    </bean>
+
+    <!-- EntityManagerFactory -->
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+        </property>
+        <property name="packagesToScan"
+                  value="ru.sstu.model.db"/>
+    </bean>
+
+    <!-- TransactionManager обеспечивает транзакции в Spring -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
+    </bean>
+
+    <!--Включение аннотаций @Transactional, которые будут задействовать указанный transactionManager -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- Описание пакета репозиториев, использующих указанную EntityManagerFactory и TransactionManager -->
+    <jpa:repositories base-package="ru.sstu.repository" entity-manager-factory-ref="emf"
+                      transaction-manager-ref="transactionManager"/>
+
+
+
+   <!-- -->
+
+</beans>

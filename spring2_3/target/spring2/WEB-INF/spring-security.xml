@@ -1,0 +1,41 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+
+
+    <http auto-config="true" use-expressions="true">
+
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+
+        <access-denied-handler error-page="/403" />
+
+        <form-login
+                login-page="/login"
+                default-target-url="/welcome"
+                authentication-failure-url="/login?error"
+                username-parameter="username"
+                password-parameter="password" />
+
+        <logout logout-success-url="/login?logout"  />
+        <csrf/>
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <!--<jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query=
+                                                "select id,username,password,enabled from users where username=?"
+                                        authorities-by-username-query=
+                                                "select id,id_user,role from user_roles where id_user =(select id from users where username = ?)" />
+
+        -->
+            <user-service>
+                <user name="user" password="password" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+
+</b:beans>
